@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %} Inicio {% endblock %}
+
+{% block content %}
+
+<div class="p-5 bg-light">
+    <div class="container">
+        <h1 class="display-3">Welcome to WeeklyMenu</h1>
+        <p class="lead">Agregar Receta</p>
+        <hr class="my-2">
+        
+        <p class="lead">
+            <a class="btn btn-primary btn-lg" href="{% url 'menu' %}" role="button">Generar Menú</a>
+        </p>
+    </div>
+</div>
+
+{% endblock %}

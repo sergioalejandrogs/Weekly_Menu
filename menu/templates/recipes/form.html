@@ -1,0 +1,33 @@
+<form enctype="multipart/form-data" method="post">
+  {% csrf_token %}
+    <div class="mb-3">
+      <label for="" class="form-label">Título de la Receta:</label>
+      <input type="text" class="form-control" name="title" id="" aria-describedby="helpId" placeholder="Título de la Receta" placeholder="Título de la Receta" required= value="{{ form.title.value | default:'' }}"/>
+    </div>
+    <div class="mb-3">
+      <label for="" class="form-label">Tipo de receta:</label>
+      <select class="form-control" name="type" id="type" value="{{ form.type.selected | default:'' }}">
+        <option>Desayuno</option>
+        <option>Almuerzo</option>
+        <option>Cena</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label for="" class="form-label">Ingredientes:</label>
+      <textarea class="form-control" name="ingredients" id="ingredients" rows="2" required placeholder="Escribe los ingredientes de la receta separados por comas (,).">{{ form.ingredients.value | default:'' }}</textarea>
+    </div>
+    <div class="mb-3">
+      <label for="" class="form-label">Instrucciones:</label>
+      <textarea class="form-control" name="instructions" id="instructions" required= rows="4" placeholder="Indica las instrucciones para realizar esta receta.">{{ form.instructions.value | default:'' }}</textarea>
+    </div>
+    <div class="mb-3">
+      <label for="" class="form-label">Imagen de la Receta:</label>
+      {% if form.photo.value %}
+      <img src="{{ MEDIA_URL }}/images/{{ form.photo.value }}" alt="" width="100px" height="100px">
+      <br><br>
+      {% endif %}
+      <input type="file" class="form-control" name="photo" id="" aria-describedby="helpId" />
+    </div> 
+  <input name="" id="" class="btn btn-success" type="submit" value="Registrar Receta">
+  <a name="" id="" class="btn btn-dark" href="{% url 'recipes' %}" role="button">Regresar</a>
+</form>

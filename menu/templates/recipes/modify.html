@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %} Modificar Receta {% endblock %}
+
+{% block content %}
+
+<div class="card">
+    <div class="card-header">
+        Editar Receta
+    </div>
+    <div class="card-body">
+        <h4 class="card-title">Datos de la Receta</h4>
+        {% include 'recipes/form.html' %}
+    </div>
+</div>
+
+{% endblock %}

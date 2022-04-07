@@ -1,0 +1,242 @@
+{% extends "base.html" %}
+
+{% block title %} Menú Semanal {% endblock %}
+
+{% block content %}
+
+<div class="card">
+    <div class="card-body">
+        <h1 class="card-title">Menú Lunes</h1>
+        <table id="" class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Tipo</th>
+                    <th>Receta</th>
+                    <th>Imagen</th>
+                    <th>Ingredientes</th>
+                    <th>Instrucciones</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                {% for recipe in mon_menu %}
+                <tr>
+                    <td>{{ recipe.type }}</td>
+                    <td>{{ recipe.title }}</td>
+                    <td>
+                        <img src="{{ MEDIA_URL }}/images/{{ recipe.photo }}" width="100px" height="100px">         
+                    </td>
+                    <td>{{ recipe.ingredients }}</td>
+                    <td>{{ recipe.instructions }}</td>
+                </tr>
+
+                {% endfor %}
+            </tbody>
+        </table>
+        
+    </div>
+    
+</div><br><br>
+
+<div class="card">
+    <div class="card-body">
+        <h1 class="card-title">Menú Martes</h1>
+        <table id="" class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Tipo</th>
+                    <th>Receta</th>
+                    <th>Imagen</th>
+                    <th>Ingredientes</th>
+                    <th>Instrucciones</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                {% for recipe in tue_menu %}
+                <tr>
+                    <td>{{ recipe.type }}</td>
+                    <td>{{ recipe.title }}</td>
+                    <td>
+                        <img src="{{ MEDIA_URL }}/images/{{ recipe.photo }}" width="100px" height="100px">         
+                    </td>
+                    <td>{{ recipe.ingredients }}</td>
+                    <td>{{ recipe.instructions }}</td>
+                </tr>
+
+                {% endfor %}
+            </tbody>
+        </table>
+        
+    </div>
+    
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <h1 class="card-title">Menú Miércoles</h1>
+        <table id="table" class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Tipo</th>
+                    <th>Receta</th>
+                    <th>Imagen</th>
+                    <th>Ingredientes</th>
+                    <th>Instrucciones</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                {% for recipe in wed_menu %}
+                <tr>
+                    <td>{{ recipe.type }}</td>
+                    <td>{{ recipe.title }}</td>
+                    <td>
+                        <img src="{{ MEDIA_URL }}/images/{{ recipe.photo }}" width="100px" height="100px">         
+                    </td>
+                    <td>{{ recipe.ingredients }}</td>
+                    <td>{{ recipe.instructions }}</td>
+                </tr>
+
+                {% endfor %}
+            </tbody>
+        </table>
+        
+    </div>
+    
+</div>
+<div class="card">
+    <div class="card-body">
+        <h1 class="card-title">Menú Jueves</h1>
+        <table id="table" class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Tipo</th>
+                    <th>Receta</th>
+                    <th>Imagen</th>
+                    <th>Ingredientes</th>
+                    <th>Instrucciones</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                {% for recipe in thu_menu %}
+                <tr>
+                    <td>{{ recipe.type }}</td>
+                    <td>{{ recipe.title }}</td>
+                    <td>
+                        <img src="{{ MEDIA_URL }}/images/{{ recipe.photo }}" width="100px" height="100px">         
+                    </td>
+                    <td>{{ recipe.ingredients }}</td>
+                    <td>{{ recipe.instructions }}</td>
+                </tr>
+
+                {% endfor %}
+            </tbody>
+        </table>
+        
+    </div>
+    
+</div>
+<div class="card">
+    <div class="card-body">
+        <h1 class="card-title">Menú Viernes</h1>
+        <table id="table" class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Tipo</th>
+                    <th>Receta</th>
+                    <th>Imagen</th>
+                    <th>Ingredientes</th>
+                    <th>Instrucciones</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                {% for recipe in fri_menu %}
+                <tr>
+                    <td>{{ recipe.type }}</td>
+                    <td>{{ recipe.title }}</td>
+                    <td>
+                        <img src="{{ MEDIA_URL }}/images/{{ recipe.photo }}" width="100px" height="100px">         
+                    </td>
+                    <td>{{ recipe.ingredients }}</td>
+                    <td>{{ recipe.instructions }}</td>
+                </tr>
+
+                {% endfor %}
+            </tbody>
+        </table>
+        
+    </div>
+    
+</div>
+<div class="card">
+    <div class="card-body">
+        <h1 class="card-title">Menú Sábado</h1>
+        <table id="table" class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Tipo</th>
+                    <th>Receta</th>
+                    <th>Imagen</th>
+                    <th>Ingredientes</th>
+                    <th>Instrucciones</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                {% for recipe in sat_menu %}
+                <tr>
+                    <td>{{ recipe.type }}</td>
+                    <td>{{ recipe.title }}</td>
+                    <td>
+                        <img src="{{ MEDIA_URL }}/images/{{ recipe.photo }}" width="100px" height="100px">         
+                    </td>
+                    <td>{{ recipe.ingredients }}</td>
+                    <td>{{ recipe.instructions }}</td>
+                </tr>
+
+                {% endfor %}
+            </tbody>
+        </table>
+        
+    </div>
+    
+</div>
+<div class="card">
+    <div class="card-body">
+        <h1 class="card-title">Menú Domingo</h1>
+        <table id="table" class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Tipo</th>
+                    <th>Receta</th>
+                    <th>Imagen</th>
+                    <th>Ingredientes</th>
+                    <th>Instrucciones</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                {% for recipe in sun_menu %}
+                <tr>
+                    <td>{{ recipe.type }}</td>
+                    <td>{{ recipe.title }}</td>
+                    <td>
+                        <img src="{{ MEDIA_URL }}/images/{{ recipe.photo }}" width="100px" height="100px">         
+                    </td>
+                    <td>{{ recipe.ingredients }}</td>
+                    <td>{{ recipe.instructions }}</td>
+                </tr>
+
+                {% endfor %}
+            </tbody>
+        </table>
+        
+    </div>
+    
+</div>
+<br>
+<a name="" id="" class="btn btn-primary" href="{% url 'shopping_list' %}" role="button">Ir a la lista de compra</a>
+{% endblock %}

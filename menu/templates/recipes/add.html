@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %} Agregar Receta {% endblock %}
+
+{% block content %}
+
+<div class="card">
+    <div class="card-header">
+        Agregar Receta
+    </div>
+    <div class="card-body">
+        <h4 class="card-title">Datos de la Receta</h4>
+        {% include 'recipes/form.html' %}
+    </div>
+</div>
+
+{% endblock %}

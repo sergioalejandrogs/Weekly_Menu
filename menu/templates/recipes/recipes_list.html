@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block title %} Lista de Recetas {% endblock %}
+
+{% block content %}
+
+<div class="card">
+    <div class="card-header">
+        <a name="" id="" class="btn btn-success" href="{% url 'add' %}" role="button">Agregar Receta</a>
+    </div>
+    <div class="card-body">
+        <h1 class="card-title">Recetas</h1>
+        <table id="table" class="table table-hover">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Receta</th>
+                    <th>Imagen</th>
+                    <th>Tipo</th>
+                    <th>Ingredientes</th>
+                    <th>Instrucciones</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                {% for recipe in recipes %}
+                <tr>
+                    <td>{{ recipe.id }}</td>
+                    <td>{{ recipe.title }}</td>
+                    <td>
+                        <img src="{{ recipe.photo.url }}" width="100px" height="100px">         
+                    </td>
+                    <td>{{ recipe.type }}</td>
+                    <td>{{ recipe.ingredients }}</td>
+                    <td>{{ recipe.instructions }}</td>
+                    <td> 
+                        <a name="modify" id="modify" class="btn btn-warning" href="{% url 'modify' recipe.id %}" role="button">Editar</a>  
+                        <a name="delete" id="delete" class="btn btn-danger" href="{% url 'delete' recipe.id %}" role="button">Eliminar</a>  
+                    </td>
+                </tr>
+
+                {% endfor %}
+            </tbody>
+        </table>
+        
+    </div>
+    
+</div>
+
+{% endblock %}

@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block title %} Lista de Compra {% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <h2 style="text-align:center;">Lista de Compra</h2><br>
+    <ul class="list-group">
+        {% for item in mon_ingredients %}
+        <li class="list-group-item ">{{ item.ingredients }}</li>
+        {% endfor %}
+    </ul>
+
+    <ul class="list-group">
+        {% for item in tue_ingredients %}
+        <li class="list-group-item ">{{ item.ingredients }}</li>
+        {% endfor %}
+    </ul>
+
+    <ul class="list-group">
+        {% for item in wed_ingredients %}
+        <li class="list-group-item ">{{ item.ingredients }}</li>
+        {% endfor %}
+    </ul>
+
+    <ul class="list-group">
+        {% for item in thu_ingredients %}
+        <li class="list-group-item ">{{ item.ingredients }}</li>
+        {% endfor %}
+    </ul>
+
+    <ul class="list-group">
+        {% for item in fri_ingredients %}
+        <li class="list-group-item ">{{ item.ingredients }}</li>
+        {% endfor %}
+    </ul>
+
+    <ul class="list-group">
+        {% for item in sat_ingredients %}
+        <li class="list-group-item ">{{ item.ingredients }}</li>
+        {% endfor %}
+    </ul>
+
+    <ul class="list-group">
+        {% for item in sun_ingredients %}
+        <li class="list-group-item ">{{ item.ingredients }}</li>
+        {% endfor %}
+    </ul>
+</div>
+
+{% endblock %}

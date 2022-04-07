@@ -1,0 +1,230 @@
+{% extends "base.html" %}
+
+{% block title %} Generar Menú Semanal {% endblock %}
+
+{% block content %}
+
+<form method="post">
+    {% csrf_token %}
+    <div class="mb-3">
+        <label for="monday_breakfast" class="form-label">Desayuno Lunes:</label>
+        <select class="form-control" name="monday_breakfast" id="">
+            {% for recipe in recipes %}
+            {% if recipe.type == 'Desayuno' %}
+            <option value="{{ recipe.id }}">{{ recipe.title }}</option>
+            {% endif %}
+            {% endfor %}
+        </select>
+    </div>
+    <div class="mb-3">
+        <label for="monday_lunch" class="form-label">Almuerzo Lunes:</label>
+        <select class="form-control" name="monday_lunch" id="">
+            {% for recipe in recipes %}
+            {% if recipe.type == 'Almuerzo' %}
+            <option value="{{ recipe.id }}">{{ recipe.title }}</option>
+            {% endif %}
+            {% endfor %}
+        </select>
+    </div>
+    <div class="mb-3">
+        <label for="monday_dinner" class="form-label">Cena Lunes:</label>
+        <select class="form-control" name="monday_dinner" id="">
+            {% for recipe in recipes %}
+            {% if recipe.type == 'Cena' %}
+            <option value="{{ recipe.id }}">{{ recipe.title }}</option>
+            {% endif %}
+            {% endfor %}
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <label for="tuesday_breakfast" class="form-label">Desayuno Martes:</label>
+        <select class="form-control" name="tuesday_breakfast" id="">
+            {% for recipe in recipes %}
+            {% if recipe.type == 'Desayuno' %}
+            <option value="{{ recipe.id }}">{{ recipe.title }}</option>
+            {% endif %}
+            {% endfor %}
+        </select>
+    </div>
+    <div class="mb-3">
+        <label for="tuesday_lunch" class="form-label">Almuerzo Martes:</label>
+        <select class="form-control" name="tuesday_lunch" id="">
+            {% for recipe in recipes %}
+            {% if recipe.type == 'Almuerzo' %}
+            <option value="{{ recipe.id }}">{{ recipe.title }}</option>
+            {% endif %}
+            {% endfor %}
+        </select>
+    </div>
+    <div class="mb-3">
+        <label for="tuesday_dinner" class="form-label">Cena Martes:</label>
+        <select class="form-control" name="tuesday_dinner" id="">
+            {% for recipe in recipes %}
+            {% if recipe.type == 'Cena' %}
+            <option value="{{ recipe.id }}">{{ recipe.title }}</option>
+            {% endif %}
+            {% endfor %}
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <label for="wednesday_breakfast" class="form-label">Desayuno Miércoles:</label>
+        <select class="form-control" name="wednesday_breakfast" id="">
+            {% for recipe in recipes %}
+            {% if recipe.type == 'Desayuno' %}
+            <option value="{{ recipe.id }}">{{ recipe.title }}</option>
+            {% endif %}
+            {% endfor %}
+        </select>
+    </div>
+    <div class="mb-3">
+        <label for="wednesday_lunch" class="form-label">Almuerzo Miércoles:</label>
+        <select class="form-control" name="wednesday_lunch" id="">
+            {% for recipe in recipes %}
+            {% if recipe.type == 'Almuerzo' %}
+            <option value="{{ recipe.id }}">{{ recipe.title }}</option>
+            {% endif %}
+            {% endfor %}
+        </select>
+    </div>
+    <div class="mb-3">
+        <label for="wednesday_dinner" class="form-label">Cena Miércoles:</label>
+        <select class="form-control" name="wednesday_dinner" id="">
+            {% for recipe in recipes %}
+            {% if recipe.type == 'Cena' %}
+            <option value="{{ recipe.id }}">{{ recipe.title }}</option>
+            {% endif %}
+            {% endfor %}
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <label for="thursday_breakfast" class="form-label">Desayuno Jueves:</label>
+        <select class="form-control" name="thursday_breakfast" id="">
+            {% for recipe in recipes %}
+            {% if recipe.type == 'Desayuno' %}
+            <option value="{{ recipe.id }}">{{ recipe.title }}</option>
+            {% endif %}
+            {% endfor %}
+        </select>
+    </div>
+    <div class="mb-3">
+        <label for="thursday_lunch" class="form-label">Almuerzo Jueves:</label>
+        <select class="form-control" name="thursday_lunch" id="">
+            {% for recipe in recipes %}
+            {% if recipe.type == 'Almuerzo' %}
+            <option value="{{ recipe.id }}">{{ recipe.title }}</option>
+            {% endif %}
+            {% endfor %}
+        </select>
+    </div>
+    <div class="mb-3">
+        <label for="thursday_dinner" class="form-label">Cena Jueves:</label>
+        <select class="form-control" name="thursday_dinner" id="">
+            {% for recipe in recipes %}
+            {% if recipe.type == 'Cena' %}
+            <option value="{{ recipe.id }}">{{ recipe.title }}</option>
+            {% endif %}
+            {% endfor %}
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <label for="friday_breakfast" class="form-label">Desayuno Viernes:</label>
+        <select class="form-control" name="friday_breakfast" id="">
+            {% for recipe in recipes %}
+            {% if recipe.type == 'Desayuno' %}
+            <option value="{{ recipe.id }}">{{ recipe.title }}</option>
+            {% endif %}
+            {% endfor %}
+        </select>
+    </div>
+    <div class="mb-3">
+        <label for="friday_lunch" class="form-label">Almuerzo Viernes:</label>
+        <select class="form-control" name="friday_lunch" id="">
+            {% for recipe in recipes %}
+            {% if recipe.type == 'Almuerzo' %}
+            <option value="{{ recipe.id }}">{{ recipe.title }}</option>
+            {% endif %}
+            {% endfor %}
+        </select>
+    </div>
+    <div class="mb-3">
+        <label for="friday_dinner" class="form-label">Cena Viernes:</label>
+        <select class="form-control" name="friday_dinner" id="">
+            {% for recipe in recipes %}
+            {% if recipe.type == 'Cena' %}
+            <option value="{{ recipe.id }}">{{ recipe.title }}</option>
+            {% endif %}
+            {% endfor %}
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <label for="saturday_breakfast" class="form-label">Desayuno Sábado:</label>
+        <select class="form-control" name="saturday_breakfast" id="">
+            {% for recipe in recipes %}
+            {% if recipe.type == 'Desayuno' %}
+            <option value="{{ recipe.id }}">{{ recipe.title }}</option>
+            {% endif %}
+            {% endfor %}
+        </select>
+    </div>
+    <div class="mb-3">
+        <label for="saturday_lunch" class="form-label">Almuerzo Sábado:</label>
+        <select class="form-control" name="saturday_lunch" id="">
+            {% for recipe in recipes %}
+            {% if recipe.type == 'Almuerzo' %}
+            <option value="{{ recipe.id }}">{{ recipe.title }}</option>
+            {% endif %}
+            {% endfor %}
+        </select>
+    </div>
+    <div class="mb-3">
+        <label for="saturday_dinner" class="form-label">Cena Sábado:</label>
+        <select class="form-control" name="saturday_dinner" id="">
+            {% for recipe in recipes %}
+            {% if recipe.type == 'Cena' %}
+            <option value="{{ recipe.id }}">{{ recipe.title }}</option>
+            {% endif %}
+            {% endfor %}
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <label for="sunday_breakfast" class="form-label">Desayuno Domingo:</label>
+        <select class="form-control" name="sunday_breakfast" id="">
+            {% for recipe in recipes %}
+            {% if recipe.type == 'Desayuno' %}
+            <option value="{{ recipe.id }}">{{ recipe.title }}</option>
+            {% endif %}
+            {% endfor %}
+        </select>
+    </div>
+    <div class="mb-3">
+        <label for="sunday_lunch" class="form-label">Almuerzo Domingo:</label>
+        <select class="form-control" name="sunday_lunch" id="">
+            {% for recipe in recipes %}
+            {% if recipe.type == 'Almuerzo' %}
+            <option value="{{ recipe.id }}">{{ recipe.title }}</option>
+            {% endif %}
+            {% endfor %}
+        </select>
+    </div>
+    <div class="mb-3">
+        <label for="sunday_dinner" class="form-label">Cena Domingo:</label>
+        <select class="form-control" name="sunday_dinner" id="">
+            {% for recipe in recipes %}
+            {% if recipe.type == 'Cena' %}
+            <option value="{{ recipe.id }}">{{ recipe.title }}</option>
+            {% endif %}
+            {% endfor %}
+        </select>
+    </div>
+
+    <input name="" id="" class="btn btn-success" type="submit" value="Generar Menú">
+    <a name="" id="" class="btn btn-secondary" href="{% url 'index' %}" role="button">Regresar</a>
+</form>
+
+{% endblock %}
