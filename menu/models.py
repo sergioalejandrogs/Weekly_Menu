@@ -1,8 +1,11 @@
 from django.db import models
-
+from django.contrib.auth.models import User
 # Create your models here.
 
 class Recipe(models.Model):
+
+    """Class Recipe constructs the model on which the correspondent database table is created."""
+
     id = models.AutoField(primary_key=True)
     title = models.CharField(max_length=100, null=True, verbose_name="Título")
     type = models.CharField(max_length=20, null=True)
@@ -11,15 +14,32 @@ class Recipe(models.Model):
     photo = models.ImageField(upload_to='images/', null=True)
 
     def __str__(self) -> str:
+
+        """
+        It defines the data type of the object associated to this class. It will return the specified parameter (title) as a string.
+        :type: str -> this method returns a string.
+        
+        """
+
         title = self.title 
         return title
 
-    def delete(self, using=None, keep_parents=False):
+    def delete(self):
+
+        """
+        This method is created to delete both the picture and the data from the DB when deleting a row from the CRUD app.
+        It takes self, the object, as a parameter to capture image's path and data row to delete it.
+        """
+
         self.photo.storage.delete(self.photo.name)
         super().delete()
 
 class Menu(models.Model):
+
+    """Class Menu constructs the model on which the correspondent database table is created."""
+
     id = models.AutoField(primary_key=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='menu', null=True)
     monday_breakfast = models.ForeignKey(Recipe, on_delete=models.CASCADE, related_name='monday_breakfast', null=True)
     monday_lunch = models.ForeignKey(Recipe, on_delete=models.CASCADE, related_name='monday_lunch', null=True)
     monday_dinner = models.ForeignKey(Recipe, on_delete=models.CASCADE, related_name='monday_dinner', null=True)
@@ -41,5 +61,3 @@ class Menu(models.Model):
     sunday_breakfast = models.ForeignKey(Recipe, on_delete=models.CASCADE, related_name='sunday_breakfast', null=True)
     sunday_lunch = models.ForeignKey(Recipe, on_delete=models.CASCADE, related_name='sunday_lunch', null=True)
     sunday_dinner = models.ForeignKey(Recipe, on_delete=models.CASCADE, related_name='sunday_dinner', null=True)
-
-    

@@ -6,10 +6,16 @@
 
 <div class="p-5 bg-light">
     <div class="container">
-        <h1 class="display-3">Welcome to WeeklyMenu</h1>
-        <p class="lead">Agregar Receta</p>
+        <h1 class="display-3">¡Hola, {{ user.username }}! Bienvenido a WeeklyMenu</h1>
+        <p class="lead">Ya puedes empezar a planear tu menú semanal</p>
         <hr class="my-2">
         
+        {% if request.user.is_staff %}
+        <p class="lead">
+            <a class="btn btn-primary btn-lg" href="{% url 'recipes' %}" role="button">Gestionar recetas</a>
+        </p>
+        {% endif %}
+
         <p class="lead">
             <a class="btn btn-primary btn-lg" href="{% url 'menu' %}" role="button">Generar Menú</a>
         </p>
