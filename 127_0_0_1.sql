@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 07-04-2022 a las 12:47:58
+-- Tiempo de generación: 28-04-2022 a las 19:41:33
 -- Versión del servidor: 10.4.19-MariaDB
 -- Versión de PHP: 8.0.7
 
@@ -20,7 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `weekly_menu`
 --
-DROP DATABASE IF EXISTS `weekly_menu`;
 CREATE DATABASE IF NOT EXISTS `weekly_menu` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 USE `weekly_menu`;
 
@@ -35,6 +34,13 @@ CREATE TABLE `auth_group` (
   `name` varchar(150) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Volcado de datos para la tabla `auth_group`
+--
+
+INSERT INTO `auth_group` (`id`, `name`) VALUES
+(1, 'admin');
+
 -- --------------------------------------------------------
 
 --
@@ -46,6 +52,20 @@ CREATE TABLE `auth_group_permissions` (
   `group_id` int(11) NOT NULL,
   `permission_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `auth_group_permissions`
+--
+
+INSERT INTO `auth_group_permissions` (`id`, `group_id`, `permission_id`) VALUES
+(2, 1, 25),
+(3, 1, 26),
+(4, 1, 27),
+(5, 1, 28),
+(6, 1, 29),
+(7, 1, 30),
+(8, 1, 31),
+(1, 1, 32);
 
 -- --------------------------------------------------------
 
@@ -127,7 +147,9 @@ CREATE TABLE `auth_user` (
 --
 
 INSERT INTO `auth_user` (`id`, `password`, `last_login`, `is_superuser`, `username`, `first_name`, `last_name`, `email`, `is_staff`, `is_active`, `date_joined`) VALUES
-(1, 'pbkdf2_sha256$260000$07igfCdy4Ey1RF9uTejLQz$J9SIEfpkyBjOYvzsaM3TIsYOMI8qLyG3g0hxb8JswZY=', '2022-04-04 20:00:20.125647', 1, 'admin', '', '', 'seragonzalez11@misena.edu.co', 1, 1, '2022-04-04 19:59:32.842677');
+(1, 'pbkdf2_sha256$260000$07igfCdy4Ey1RF9uTejLQz$J9SIEfpkyBjOYvzsaM3TIsYOMI8qLyG3g0hxb8JswZY=', '2022-04-28 17:19:53.557302', 1, 'admin', '', '', 'seragonzalez11@misena.edu.co', 1, 1, '2022-04-04 19:59:32.000000'),
+(2, 'pbkdf2_sha256$260000$8PZD76AxqAlQbPYNzT45rR$xhd837uhL4E2Eg7NFgqlGfcJ5E4jOq/yGBl7AHtJ9dY=', '2022-04-28 17:29:16.939671', 0, 'sergio', '', '', 'sergioalejandrogs@gmail.com', 0, 1, '2022-04-13 21:50:21.000000'),
+(3, 'pbkdf2_sha256$260000$xnDGrrE1wo4SPoYUHq2NUF$wWnpAlH8YntONYv03bOSRTI2VUqukodxyPCVFltTnUI=', '2022-04-21 06:23:09.071532', 0, 'fulanito', '', '', 'fulanito@guayando.com', 0, 1, '2022-04-21 06:23:08.943533');
 
 -- --------------------------------------------------------
 
@@ -140,6 +162,13 @@ CREATE TABLE `auth_user_groups` (
   `user_id` int(11) NOT NULL,
   `group_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `auth_user_groups`
+--
+
+INSERT INTO `auth_user_groups` (`id`, `user_id`, `group_id`) VALUES
+(1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -179,7 +208,10 @@ INSERT INTO `django_admin_log` (`id`, `action_time`, `object_id`, `object_repr`,
 (2, '2022-04-04 20:07:31.596820', '1', 'Changua', 3, '', 7, 1),
 (3, '2022-04-04 20:09:44.887535', '2', 'Changua', 1, '[{\"added\": {}}]', 7, 1),
 (4, '2022-04-04 20:10:24.010949', '3', 'Frijoles', 1, '[{\"added\": {}}]', 7, 1),
-(5, '2022-04-04 20:10:54.172832', '4', 'Ensalada', 1, '[{\"added\": {}}]', 7, 1);
+(5, '2022-04-04 20:10:54.172832', '4', 'Ensalada', 1, '[{\"added\": {}}]', 7, 1),
+(6, '2022-04-26 23:27:33.842993', '2', 'sergio', 2, '[{\"changed\": {\"fields\": [\"Email address\"]}}]', 4, 1),
+(7, '2022-04-26 23:47:24.782528', '1', 'admin', 1, '[{\"added\": {}}]', 3, 1),
+(8, '2022-04-26 23:47:39.768169', '1', 'admin', 2, '[{\"changed\": {\"fields\": [\"Groups\"]}}]', 4, 1);
 
 -- --------------------------------------------------------
 
@@ -248,7 +280,9 @@ INSERT INTO `django_migrations` (`id`, `app`, `name`, `applied`) VALUES
 (21, 'menu', '0003_rename_recipes_recipe', '2022-04-04 20:08:23.215820'),
 (22, 'menu', '0004_alter_recipe_type', '2022-04-05 00:02:46.954370'),
 (23, 'menu', '0005_alter_recipe_type', '2022-04-05 00:24:19.250660'),
-(24, 'menu', '0006_auto_20220407_0221', '2022-04-07 07:21:44.214611');
+(24, 'menu', '0006_auto_20220407_0221', '2022-04-07 07:21:44.214611'),
+(25, 'menu', '0007_menu_user', '2022-04-13 23:18:17.254419'),
+(26, 'menu', '0008_alter_menu_user', '2022-04-13 23:25:43.809485');
 
 -- --------------------------------------------------------
 
@@ -267,7 +301,7 @@ CREATE TABLE `django_session` (
 --
 
 INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
-('08w0rv2m0btyucllud1zdckcjc1m7qq1', '.eJxVjMsOwiAUBf-FtSGF4gVcuu83ELgPqZo2Ke3K-O_apAvdnpk5L5Xytta0NV7SSOqijDr9biXjg6cd0D1Pt1njPK3LWPSu6IM2PczEz-vh_h3U3Oq3RiwBxIv14MggnEMgtg7BOOpAIPfOgmFgsr2Qd8EXIaI-xo4Fo6j3B-6TOIM:1nbSs8:VAPfiUJaNUGXk2XOiwPAVc9a_h0FNMeJOiQsipua5OM', '2022-04-18 20:00:20.127647');
+('clkzckitif3aer0h2slqd3t3vpe8rksf', '.eJxVjEEOwiAQAP_C2RCWskvj0btvIMCCVA0kpT0Z_64kPeh1ZjIv4fy-Fbf3tLqFxVlocfplwcdHqkPw3ddbk7HVbV2CHIk8bJfXxul5Odq_QfG9jO2ccCKcgcEikPEEGQNpSoZtVkiKzYRK6_RlbJFNVKByBB3yBDmI9werRTbQ:1nk7x6:w_PQn_GjgM4idrl_kTImoy5ok2DNOCgHUBvel23bM3o', '2022-05-12 17:29:16.943672');
 
 -- --------------------------------------------------------
 
@@ -297,7 +331,8 @@ CREATE TABLE `menu_menu` (
   `tuesday_lunch_id` int(11) DEFAULT NULL,
   `wednesday_breakfast_id` int(11) DEFAULT NULL,
   `wednesday_dinner_id` int(11) DEFAULT NULL,
-  `wednesday_lunch_id` int(11) DEFAULT NULL
+  `wednesday_lunch_id` int(11) DEFAULT NULL,
+  `user_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -320,10 +355,9 @@ CREATE TABLE `menu_recipe` (
 --
 
 INSERT INTO `menu_recipe` (`id`, `title`, `type`, `ingredients`, `instructions`, `photo`) VALUES
-(2, 'Changua', 'Desayuno', 'Leche, Huevo', '1. \r\n2. \r\n3.\r\n4.\r\n5.', 'images/py.jpg'),
-(3, 'Frijoles', 'Almuerzo', 'Frijoles, Arroz, Cerdo, Sal', '1. \r\n2. \r\n3.\r\n4.\r\n5.', 'images/bike.jpg'),
-(4, 'Torta', 'Almuerzo', 'Lechuga, Tomate, Vinagre', '1. \r\n2. \r\n3.\r\n4.\r\n5.', 'images/Hearthstone_Screenshot_11-17-21_23.32.17.png'),
-(6, 'Ensalada', 'Cena', 'Mango, manzana, crema de leche', '1. \r\n2. \r\n3. \r\n4. \r\n5.', 'images/stromae.jpg');
+(7, 'Albóndigas de ternera', 'Almuerzo', '500 gramos de carne molida, 2 huevos, 1 cebolla, 3 cucharadas soperas de pan rallado, Harina, 1 pizca de orégano, 1 pizca de ajo en polvo, 1 cucharada sopera de perejil fresco', '1. Coloca la carne en un bol lo suficientemente amplio y amasa junto con los huevos, el pan rallado, la cebolla, los condimentos y el perejil. \r\n2. Añade un poco de harina a la mezcla hasta que se vuelva maleable y compacta.\r\n3. Forma bolitas con la carne y pásalas por pan rallado.\r\n4. Las podrás cocinar en salsa o hacerlas fritas.', 'images/albondigas_.jpg'),
+(8, 'Alitas en salsa de mango', 'Almuerzo', '1 kilogramo de alitas de pollo limpias, 1 cucharadita de sal, 2 cucharaditas de ajo granulado, 1 cucharadita de pimienta, 1 limón (el jugo), 2 cucharaditas de harina de trigo o fécula de maíz, 1 cucharadita de miel, 1½ tazas de mango picado, 1 cucharadita de cebolla en polvo, 2 chiles habaneros, 1 chorro de aceite, Zanahoria en tiras, Apio en tiras, Aderezo al gusto', '1. Limpia muy bien las alitas.\r\n2. Agrega la sal, una cucharadita de ajo granulado, la pimienta, el jugo de un limón y la harina, añade un poco de aceite en espray, o pincela las alitas, y hornéalas a 180 °C con calor por arriba y por abajo por 15-20 minutos.\r\n3. Asa los chiles habaneros y luego licuálos con el mango por tres minutos junto con miel, cebolla y ajo en polvo.\r\n4. Cocina la mezcla y reserva para cubrir las alitas posterior a que las alitas estén horneadas.', 'images/alitas_en_salsa_de_mango_75461_600.jpg'),
+(9, 'Huevos tibios', 'Desayuno', '1 huevo, 500 mililitros de agua, 1 pizca de sal', '1. Lava la superficie del huevo y vierte el huevo en agua hirviendo.\r\n2. Luego de 5 minutos saca el huevo y sumérgelo en agua fría.\r\n3. Romper delicadamente el huevo, agrega sal y/o pimienta.', 'images/tibios.jpg');
 
 --
 -- Índices para tablas volcadas
@@ -427,7 +461,8 @@ ALTER TABLE `menu_menu`
   ADD KEY `menu_menu_tuesday_lunch_id_4e53e118_fk_menu_recipe_id` (`tuesday_lunch_id`),
   ADD KEY `menu_menu_wednesday_breakfast_id_88194f4b_fk_menu_recipe_id` (`wednesday_breakfast_id`),
   ADD KEY `menu_menu_wednesday_dinner_id_c448318e_fk_menu_recipe_id` (`wednesday_dinner_id`),
-  ADD KEY `menu_menu_wednesday_lunch_id_d7b33a52_fk_menu_recipe_id` (`wednesday_lunch_id`);
+  ADD KEY `menu_menu_wednesday_lunch_id_d7b33a52_fk_menu_recipe_id` (`wednesday_lunch_id`),
+  ADD KEY `menu_menu_user_id_ba573e1b_fk_auth_user_id` (`user_id`);
 
 --
 -- Indices de la tabla `menu_recipe`
@@ -443,13 +478,13 @@ ALTER TABLE `menu_recipe`
 -- AUTO_INCREMENT de la tabla `auth_group`
 --
 ALTER TABLE `auth_group`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `auth_group_permissions`
 --
 ALTER TABLE `auth_group_permissions`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `auth_permission`
@@ -461,13 +496,13 @@ ALTER TABLE `auth_permission`
 -- AUTO_INCREMENT de la tabla `auth_user`
 --
 ALTER TABLE `auth_user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `auth_user_groups`
 --
 ALTER TABLE `auth_user_groups`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `auth_user_user_permissions`
@@ -479,7 +514,7 @@ ALTER TABLE `auth_user_user_permissions`
 -- AUTO_INCREMENT de la tabla `django_admin_log`
 --
 ALTER TABLE `django_admin_log`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `django_content_type`
@@ -491,19 +526,19 @@ ALTER TABLE `django_content_type`
 -- AUTO_INCREMENT de la tabla `django_migrations`
 --
 ALTER TABLE `django_migrations`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT de la tabla `menu_menu`
 --
 ALTER TABLE `menu_menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT de la tabla `menu_recipe`
 --
 ALTER TABLE `menu_recipe`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- Restricciones para tablas volcadas
@@ -565,6 +600,7 @@ ALTER TABLE `menu_menu`
   ADD CONSTRAINT `menu_menu_tuesday_breakfast_id_bb8e5d5b_fk_menu_recipe_id` FOREIGN KEY (`tuesday_breakfast_id`) REFERENCES `menu_recipe` (`id`),
   ADD CONSTRAINT `menu_menu_tuesday_dinner_id_72f689d3_fk_menu_recipe_id` FOREIGN KEY (`tuesday_dinner_id`) REFERENCES `menu_recipe` (`id`),
   ADD CONSTRAINT `menu_menu_tuesday_lunch_id_4e53e118_fk_menu_recipe_id` FOREIGN KEY (`tuesday_lunch_id`) REFERENCES `menu_recipe` (`id`),
+  ADD CONSTRAINT `menu_menu_user_id_ba573e1b_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`),
   ADD CONSTRAINT `menu_menu_wednesday_breakfast_id_88194f4b_fk_menu_recipe_id` FOREIGN KEY (`wednesday_breakfast_id`) REFERENCES `menu_recipe` (`id`),
   ADD CONSTRAINT `menu_menu_wednesday_dinner_id_c448318e_fk_menu_recipe_id` FOREIGN KEY (`wednesday_dinner_id`) REFERENCES `menu_recipe` (`id`),
   ADD CONSTRAINT `menu_menu_wednesday_lunch_id_d7b33a52_fk_menu_recipe_id` FOREIGN KEY (`wednesday_lunch_id`) REFERENCES `menu_recipe` (`id`);

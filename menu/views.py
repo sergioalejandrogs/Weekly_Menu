@@ -61,6 +61,7 @@ def modify(request, id):
                 os.remove(recipe.photo.path)
             recipe.photo = request.FILES['photo']
             recipe.title = request.POST.get('title')
+            recipe.type = request.POST.get('type')
             recipe.ingredients = request.POST.get('ingredients')
             recipe.instructions = request.POST.get('instructions')
             recipe.save()
